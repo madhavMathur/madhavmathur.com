@@ -4,13 +4,13 @@
 
 //	Define the starfield class.
 function Starfield() {
-	this.fps = 60;
+	this.fps = 50;
 	this.canvas = null;
 	this.width = 0;
 	this.height = 0;
 	this.minVelocity = 5; // 15
 	this.maxVelocity = 15; // 30
-	this.stars = 3000;//275
+	this.stars = 2500;//275
 	this.intervalId = 0;
 }
 
@@ -45,7 +45,7 @@ Starfield.prototype.start = function() {
 	var stars = [];
 	for(var i=0; i<this.stars; i++) {
 		stars[i] = new Star(Math.random()*this.width, Math.random()*this.height, Math.random()*4 - Math.random()*3.9999, //*4+1
-		 (Math.floor(Math.random()*1000) == 1)? 200:((Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity), getRandomColor());
+		 (Math.floor(Math.random()*1000) == 1)? 500:((Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity), getRandomColor());
 	}
 	this.stars = stars;
 
@@ -70,7 +70,7 @@ Starfield.prototype.update = function() {
 		//	If the star has moved from the bottom of the screen, spawn it at the top.
 		if(star.y > this.height) {
 			this.stars[i] = new Star(Math.random()*this.width, 0, Math.random()*4 - Math.random()*3.9999, //*4+1
-		 	(Math.floor(Math.random()*100) == 1)? 500:((Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity), getRandomColor());
+		 	(Math.floor(Math.random()*80) == 1)? 500:((Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity), getRandomColor());
 		}
 	}
 };
