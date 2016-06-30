@@ -9,8 +9,8 @@ function Starfield() {
 	this.width = 0;
 	this.height = 0;
 	this.minVelocity = 5; // 15
-	this.maxVelocity = 30; // 30
-	this.stars = 200;
+	this.maxVelocity = 15; // 30
+	this.stars = 3000;//275
 	this.intervalId = 0;
 }
 
@@ -44,7 +44,7 @@ Starfield.prototype.start = function() {
 	//	Create the stars.
 	var stars = [];
 	for(var i=0; i<this.stars; i++) {
-		stars[i] = new Star(Math.random()*this.width, Math.random()*this.height, Math.random()*2+1,
+		stars[i] = new Star(Math.random()*this.width, Math.random()*this.height, Math.random()*4 - Math.random()*3.9999, //*4+1
 		 (Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity, getRandomColor());
 	}
 	this.stars = stars;
@@ -69,7 +69,7 @@ Starfield.prototype.update = function() {
 		star.y += dt * star.velocity;
 		//	If the star has moved from the bottom of the screen, spawn it at the top.
 		if(star.y > this.height) {
-			this.stars[i] = new Star(Math.random()*this.width, 0, Math.random()*2+1, 
+			this.stars[i] = new Star(Math.random()*this.width, 0, Math.random()*4 - Math.random()*3.9999, //*4+1
 		 	(Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity, getRandomColor());
 		}
 	}
@@ -81,7 +81,7 @@ Starfield.prototype.draw = function() {
 	var ctx = this.canvas.getContext("2d");
 
 	//	Draw the background.
- 	ctx.fillStyle = '#000000';
+ 	ctx.fillStyle = '#020022';
 
 	ctx.fillRect(0, 0, this.width, this.height);
 
@@ -95,12 +95,27 @@ Starfield.prototype.draw = function() {
 };
 
 function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#00';
-    for (var i = 0; i < 4; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+
+	if(Math.floor(Math.random()*1) == 0) {
+		var letters = '9bb0ff aabfff cad7ff f8f7ff fff4ea ffd2a1 ffcc6f'.split(' ');
+		var color = '#';
+	    color += letters[Math.floor(Math.random() * 7) + 2];
+	    return color;
+	}
+	else {
+	    var letters = '0123456789ABCDEF'.split('');
+	    var color = '#';
+	    for (var i = 0; i < 6; i++ ) {
+	    	// Dampen greens (Green colored stars are rare)
+	    	if (i < 4 && i > 1) 
+	    		color += letters[Math.floor(Math.random() * 10)];
+	    	else if(i < 2)
+	    		color += letters[Math.floor(Math.random() * 12) + 4];
+	    	else
+	        	color += letters[Math.floor(Math.random() * 16)];
+	    }
+	    return color;
+	}
 }
 
 function Star(x, y, size, velocity, color) {
