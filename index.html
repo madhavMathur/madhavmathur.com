@@ -12,11 +12,11 @@
       }
       a:visited, a:active, a:link {
         text-decoration: none;
-        color: #cecece;
+        color: #2CA4ED;
       }
       a:hover {
         text-decoration: underline;
-        color: #dfdfdf;
+        color: #2CA4ED;
       }
       #container {
         width: 100%;
@@ -24,18 +24,34 @@
         position: absolute;
         left: 0px;
         top: 0px;
+        margin-bottom: auto;
         z-index: -1;
       }
       #info {
-        width: 600px;
+        width: 850px;
         margin-top:120px;
         margin-left:auto;
         margin-right:auto;
         background-color: rgba(20, 0, 60, 0.4); //180, 180, 180, 0.5
-        padding: 40px;
+        padding: 80px;
         color: #FFFFFF;
 
-        font-weight: lighter; 
+        font-weight: light; 
+        text-align: center; 
+        vertical-align: middle; 
+        line-height: 60px;
+      }
+      #foot {
+        width: 100%;
+        margin-top:120px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom: 30px;
+        background-color: rgba(20, 0, 60, 0.4); //180, 180, 180, 0.5
+        padding: 80px;
+        color: #FFFFFF;
+
+        font-weight: light; 
         text-align: center; 
         vertical-align: middle; 
         line-height: 90px;
@@ -49,6 +65,15 @@
       .bigText { 
         font-size: 16px;
         line-height: 24px;   
+      }
+
+      .footer {
+          position: fixed; 
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 30px;
+          word-wrap: normal;
       }
 </style>
 
@@ -97,7 +122,7 @@
     <div class="row">
         <span><h1 style="font-size: 44px;">Madhav Mathur</h1></span>
     </div>
-    <div class="row">
+    <div class="row" style="padding-bottom: 0px;">
       <span><a target="_blank" href="https://www.github.com/madhavMathur"
         <i class="fa fa-github fa-3x" aria-hidden="true" style="padding-right: 20px; color: #6666FF; "></i></a>
       </span>
@@ -111,15 +136,23 @@
       </span>
       <span></span>
       <span><a target="_blank" href="mailto:madhavmathur@outlook.com"
-        <i class="fa fa-envelope fa-3x" aria-hidden="true" style="padding-right: 20px; color: #0476BA;"></i></a> <!--367588 -->
+        <i class="fa fa-envelope-o fa-3x" aria-hidden="true" style="padding-right: 20px; color: #0476BA;"></i></a> <!--367588 -->
       </span>
       <span></span>
       <span><a a target="_blank" href="https://www.linkedin.com/in/madhav-mathur-95558885"
         <i class="fa fa-linkedin fa-3x" aria-hidden="true" style="color: #0077B5;"></i></a>
       </span>
-
     </div>
+      <span style="float: top; font-weight: light; font-size: 15px; text-align: center;  padding-bottom: 20px;">
+        I'm a <a style="font-size:17px;" target="_blank" href="https://en.wikipedia.org/wiki/Software_developer"><strong>Software Developer</strong></a> interested in <a style="font-size:17px;" target="_blank" href="https://en.wikipedia.org/wiki/Machine_learning"><strong>Machine Learning</a></strong>, <strong><a style="font-size:17px;" target="_blank" href="https://en.wikipedia.org/wiki/Computational_finance">Computational Finance</a></strong> and <strong><a style="font-size:17px;" target="_blank" href="https://en.wikipedia.org/wiki/Data_science">Data Science</a></strong>.
+      </span>
+  </div>
 
+    <footer class="footer">
+      <div id="foot">
+          &copy; Madhav Mathur 2016
+      </div>
+    </footer>
 
   <script src="starfield.js"></script>
   <script>
