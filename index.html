@@ -27,15 +27,21 @@
         z-index: -1;
       }
       #info {
-        width: 400px;
+        width: 600px;
         margin-top:120px;
         margin-left:auto;
         margin-right:auto;
-        background-color: rgba(180, 180, 180, 0.2);
-        padding: 60px;
+        background-color: rgba(180, 180, 180, 0.07);
+        padding: 40px;
+        color: #FFFFFF;
+
+        font-weight: lighter; 
+        text-align: center; 
+        vertical-align: middle; 
+        line-height: 90px;
       }
       #info h3 { 
-        font-size: 28px;
+        font-size: 22px;
         font-weight: lighter;
         line-height: 36px;
         text-shadow: rgba(0, 0, 0, 1) 0px 1px 0px;
@@ -50,8 +56,8 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>Madhav Mathur</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Personal Website | madhavmathur.me">
+  <meta name="author" content="Madhav Mathur">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -60,6 +66,8 @@
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <script src="https://use.fontawesome.com/8a7d144121.js"></script>
+
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -81,9 +89,26 @@
   <link rel="icon" type="image/ico" href="images/favicon.ico">
 
 </head>
-<body>
+<body bgcolor="#000000">
 
   <div id="container"></div>
+
+  <div id="info">
+    <div class="row">
+        <span><h1 style="font-size: 44px;">Madhav Mathur</h1>
+    </div>
+      <h3>Student, Developer</h3>
+    </span>
+      
+      <span class="bigText">
+        <p>Good Day fellow human! Welcome to my website.</p>
+      </span>
+      <a href="#" onclick="randomise()">Randomise</a> | <a href="starfield.js" target="blank">starfield.js</a> |
+      <a href="https://github.com/dwmkerr/starfield">GitHub</a>
+      <p><a href="http://www.dwmkerr.com">Back to dwmkerr.com</a> or <a href="http://www.dwmkerr.com/experiments">back to the 
+        experiments page</a>.</p>
+  </div>
+
 
   <script src="starfield.js"></script>
   <script>
@@ -99,6 +124,5 @@
       starfield.start();
     }
   </script>
-
 </body>
 </html>

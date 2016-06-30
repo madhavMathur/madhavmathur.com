@@ -4,13 +4,13 @@
 
 //	Define the starfield class.
 function Starfield() {
-	this.fps = 30;
+	this.fps = 60;
 	this.canvas = null;
 	this.width = 0;
 	this.height = 0;
-	this.minVelocity = 15;
-	this.maxVelocity = 30;
-	this.stars = 100;
+	this.minVelocity = 5; // 15
+	this.maxVelocity = 30; // 30
+	this.stars = 200;
 	this.intervalId = 0;
 }
 
@@ -44,8 +44,8 @@ Starfield.prototype.start = function() {
 	//	Create the stars.
 	var stars = [];
 	for(var i=0; i<this.stars; i++) {
-		stars[i] = new Star(Math.random()*this.width, Math.random()*this.height, Math.random()*3+1,
-		 (Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity);
+		stars[i] = new Star(Math.random()*this.width, Math.random()*this.height, Math.random()*2+1,
+		 (Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity, getRandomColor());
 	}
 	this.stars = stars;
 
@@ -69,8 +69,8 @@ Starfield.prototype.update = function() {
 		star.y += dt * star.velocity;
 		//	If the star has moved from the bottom of the screen, spawn it at the top.
 		if(star.y > this.height) {
-			this.stars[i] = new Star(Math.random()*this.width, 0, Math.random()*3+1, 
-		 	(Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity);
+			this.stars[i] = new Star(Math.random()*this.width, 0, Math.random()*2+1, 
+		 	(Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity, getRandomColor());
 		}
 	}
 };
@@ -82,19 +82,32 @@ Starfield.prototype.draw = function() {
 
 	//	Draw the background.
  	ctx.fillStyle = '#000000';
+
 	ctx.fillRect(0, 0, this.width, this.height);
 
 	//	Draw stars.
-	ctx.fillStyle = '#ffffff';
+	//ctx.fillStyle = '#FFFFFF';
 	for(var i=0; i<this.stars.length;i++) {
 		var star = this.stars[i];
+		ctx.fillStyle = star.color;
 		ctx.fillRect(star.x, star.y, star.size, star.size);
 	}
 };
 
-function Star(x, y, size, velocity) {
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#00';
+    for (var i = 0; i < 4; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+function Star(x, y, size, velocity, color) {
 	this.x = x;
 	this.y = y; 
 	this.size = size;
 	this.velocity = velocity;
+	this.color = color;
 }
+
