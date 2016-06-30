@@ -70,7 +70,7 @@ Starfield.prototype.update = function() {
 		//	If the star has moved from the bottom of the screen, spawn it at the top.
 		if(star.y > this.height) {
 			this.stars[i] = new Star(Math.random()*this.width, 0, Math.random()*4 - Math.random()*3.9999, //*4+1
-		 	(Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity, getRandomColor());
+		 	(Math.floor(Math.random()*1000) == 1)? 100:((Math.random()*(this.maxVelocity - this.minVelocity))+this.minVelocity), getRandomColor());
 		}
 	}
 };
@@ -81,7 +81,7 @@ Starfield.prototype.draw = function() {
 	var ctx = this.canvas.getContext("2d");
 
 	//	Draw the background.
- 	ctx.fillStyle = '#020022';
+ 	ctx.fillStyle = '#000012';
 
 	ctx.fillRect(0, 0, this.width, this.height);
 
