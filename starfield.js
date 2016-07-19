@@ -95,8 +95,8 @@ Starfield.prototype.draw = function() {
 };
 
 function getRandomColor() {
-
 	if(Math.floor(Math.random()*1) == 0) {
+		// 7 most commonly occuring colors of stars in the night sky
 		var letters = '9bb0ff aabfff cad7ff f8f7ff fff4ea ffd2a1 ffcc6f'.split(' ');
 		var color = '#';
 	    color += letters[Math.floor(Math.random() * 7) + 2];
